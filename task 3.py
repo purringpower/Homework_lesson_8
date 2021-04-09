@@ -5,17 +5,11 @@ orders = [
     [88112, 'Einfuhrung in Python3, Bernd Klein', 3, 24.99]
 ]
 
-
-def short_lists_maker(long_list):
-    short_list = []
-    for i in range(len(long_list)):
-        if long_list[i][2] * long_list[i][3] < 100:
-            short_list.append((long_list[i][0], long_list[i][2] * long_list[i][3] + 10))
-        else:
-            short_list.append((long_list[i][0], long_list[i][2] * long_list[i][3]))
-
-    print(short_list)
-
-
-short_lists_maker(orders)
-
+print(
+        list(
+            map(
+                lambda x: (x[0], x[2] * x[3] + 10) if x[2] * x[3] < 100 else (x[0], x[2] * x[3]),
+                orders
+                )
+            )
+    )
