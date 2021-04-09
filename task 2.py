@@ -3,7 +3,7 @@ users_list = ['Masha', 'Vasya', 'Kostya', 'Vika']
 login = input('Enter your login:')
 
 
-def decorator_func(func):
+def check_user(func):
     def wrapper():
         if login not in users_list:
             print("You cant see a secret!")
@@ -13,7 +13,7 @@ def decorator_func(func):
     return wrapper
 
 
-@decorator_func
+@check_user
 def secret():
     print('There is a secret message for you,', login, "<3")
 
